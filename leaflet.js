@@ -269,16 +269,20 @@ const redIcon = L.icon({
   popupAnchor: [0, -40],
 });
 
-const roomGroups = Object.groupBy(properties, ({ beds }) => '_' + beds.toString());
-const agentGroups = Object.groupBy(properties, (props) => props.agent.name);
-
-// console.log(roomGroups);
-// console.log(agentGroups);
+const rooms = Object.groupBy(properties, ({ beds }) => '_' + beds.toString());
+const agents = Object.groupBy(properties, (props) => props.agent.name);
 
 // Markers
-const markers = [];
-properties.forEach(addMarker);
-const group = new L.featureGroup(markers);
+let markers = [];
+let groups = [];
+let group = undefined;
+
+Object.keys(rooms).forEach(room => {
+  rooms[room].forEach(addMarker);
+  group = new L.featureGroup(markers);
+  groups.push(group);
+  markers = [];
+});
 
 // Find a property
 const label = '';
@@ -289,6 +293,9 @@ if (property) {
   map.setView(property.coords, 19);
   marker.openPopup();
 } else {
-  map.fitBounds(group.getBounds());
-  markers.forEach(marker => marker.openPopup());
+  let bounds = L.latLngBounds(groups[0].getBounds());
+  groups.forEach((group) => {
+    bounds.extend(group.getBounds());
+  });
+  map.fitBounds(bounds);
 }
