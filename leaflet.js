@@ -239,22 +239,48 @@ const addMarker = (prop) => {
   }
   const label = getLabelHtml(prop);
   const options = { autoClose: false }
-  const marker = L.marker(prop.coords).addTo(map).bindPopup(label, options);
+  const markerOptions = {
+    icon: prop.beds === 3 ? blueIcon : redIcon,
+  }
+  const marker = L.marker(prop.coords, markerOptions)
+    .addTo(map)
+    .bindPopup(label, options);
   markers.push(marker);
 }
 
+// Map
 const map = L.map('map');
 const url = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 const options = { maxZoom: 19 }
 const tiles = L.tileLayer(url, options).addTo(map);
-const markers = [];
-properties.forEach(addMarker);
-const group = new L.featureGroup(markers);
-map.fitBounds(group.getBounds());
-markers.forEach(marker => marker.openPopup());
+
+const blueIcon = L.icon({
+  iconUrl: 'map-marker-blue.svg',
+  iconSize: [40, 40],
+  iconAnchor: [20, 40],
+  popupAnchor: [0, -40],
+});
+
+const redIcon = L.icon({
+  iconUrl: 'map-marker-red.svg',
+  iconSize: [40, 40],
+  iconAnchor: [20, 40],
+  popupAnchor: [0, -40],
+});
 
 const roomGroups = Object.groupBy(properties, ({ beds }) => '_' + beds.toString());
 const agentGroups = Object.groupBy(properties, (props) => props.agent.name);
 
 console.log(roomGroups);
 console.log(agentGroups);
+
+// Markers
+const markers = [];
+properties.forEach(addMarker);
+const group = new L.featureGroup(markers);
+
+// Zoom to fit
+map.fitBounds(group.getBounds());
+
+// Show Markers
+markers.forEach(marker => marker.openPopup());
