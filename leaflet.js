@@ -2,94 +2,130 @@ const initView = [50.788, -1.075];
 
 const properties = [
   {
-    name: 'cromwellRoad',
-    label: '5 Cromwell Road',
+    label: '5 Cromwell Rd',
     price: 1500,
     beds: 4,
-    group: 'fourBed',
-    agent: 'Robertsons 01329 640272',
+    agent: 'Robertsons',
+    agentPhone: '01329 640272',
     coords: [50.78643, -1.05686],
     url: 'https://www.rightmove.co.uk/properties/152537516#',
   },
   {
-    name: 'stRonansRoad',
-    label: 'St Ronans Road',
+    label: 'St Ronans Rd',
     price: 1695,
     beds: 4,
-    group: 'fourBed',
-    agent: 'Reeds Rains 023 9282 4521',
+    agent: 'Reeds Rains',
+    agentPhone: '023 9282 4521',
     coords: [50.78605, -1.07275],
     url: 'https://www.rightmove.co.uk/properties/153376400#',
   },
   {
-    name: 'ashburtonRoad',
-    label: 'Ashburton Road',
+    label: 'Ashburton Rd',
     price: 1700,
     beds: 4,
-    group: 'fourBed',
-    agent: 'Fry & Kent 023 9281 5221',
+    agent: 'Fry & Kent',
+    agentPhone: '023 9281 5221',
     coords: [50.78692, -1.09199],
     url: 'https://www.rightmove.co.uk/properties/153819809#',
   },
   {
-    name: 'eastShoreWay',
     label: 'East Shore Way',
     price: 1600,
     beds: 4,
-    group: 'fourBed',
-    agent: 'Archbold & Edwards 023 9225 7999',
+    agent: 'Archbold & Edwards',
+    agentPhone: '023 9225 7999',
     coords: [50.802670, -1.051970],
     url: 'https://www.rightmove.co.uk/properties/153260408#',
   },
   {
-    name: 'warrenAvenue',
-    label: 'Warren Avenue',
+    label: 'Warren Av',
     price: 1600,
     beds: 4,
-    group: 'fourBed',
-    agent: 'Soane 023 9200 0333',
+    agent: 'Soane',
+    agentPhone: '023 9200 0333',
     coords: [50.79946, -1.05063],
     url: 'https://www.rightmove.co.uk/properties/154488806#',
   },
   {
-    name: 'winterRoad',
-    label: 'Winter Road',
+    label: 'Winter Rd',
     price: 1750,
     beds: 3,
-    group: 'threeBed',
-    agent: 'Jeffries & Dibbens 023 9264 7171',
+    agent: 'Jeffries & Dibbens',
+    agentPhone: '023 9264 7171',
     coords: [50.78861, -1.06454],
     url: 'https://www.rightmove.co.uk/properties/154436864#',
   },
   {
-    name: 'kimberleyRoad',
-    label: 'Kimberley Road',
+    label: 'Kimberley Rd',
     price: 1200,
     beds: 3,
-    group: 'threeBed',
-    agent: 'Archbold & Edwards 023 9225 7999',
+    agent: 'Archbold & Edwards',
+    agentPhone: '023 9225 7999',
     coords: [50.78609, -1.06322],
     url: 'https://www.rightmove.co.uk/properties/154418909#',
   },
   {
-    name: 'walmerRoad',
-    label: 'Walmer Road',
+    label: 'Walmer Rd',
     price: 1350,
     beds: 3,
-    group: 'threeBed',
-    agent: 'Archbold & Edwards 023 9225 7999',
+    agent: 'Archbold & Edwards',
+    agentPhone: '023 9225 7999',
     coords: [50.79687, -1.07412],
     url: 'https://www.rightmove.co.uk/properties/153874727#',
   },
   {
-    name: 'grayshottRoad',
-    label: 'Grayshott Road',
+    label: 'Grayshott Rd',
     price: 1375,
     beds: 3,
-    group: 'threeBed',
-    agent: 'New Era Agency (023 9281 1854)',
+    agent: 'New Era Agency',
+    agentPhone: '023 9281 1854',
     coords: [50.79413, -1.06662],
     url: 'https://www.rightmove.co.uk/properties/152978771#',
+  },
+  {
+    label: 'Godwit Rd',
+    price: 1400,
+    beds: 3,
+    agent: 'Morris Dibben',
+    agentPhone: '023 8098 7741',
+    coords: [50.80014, -1.04519],
+    url: 'https://www.rightmove.co.uk/properties/153841661#/?channel=RES_LET',
+  },
+  {
+    label: 'St Augustine',
+    price: 1400,
+    beds: 3,
+    agent: 'Christies',
+    agentPhone: '023 9283 0888',
+    coords: [50.79044, -1.06816],
+    url: 'https://www.rightmove.co.uk/properties/153568313#',
+  },
+  {
+    label: 'Lindley Av',
+    price: 1475,
+    beds: 3,
+    agent: 'Pearsons',
+    agentPhone: '023 9273 5558',
+    coords: [50.78473, -1.06181],
+    url: 'https://www.rightmove.co.uk/properties/154247555#',
+  },
+  {
+    label: 'Collingwood Rd',
+    price: 1500,
+    beds: 3,
+    agent: 'Bernards',
+    agentPhone: '023 9286 4974',
+    coords: [50.78612, -1.07875],
+    url: 'https://www.rightmove.co.uk/properties/153836924#',
+  },
+  {
+    label: '',
+    price: 0,
+    beds: 3,
+    agent: '',
+    agentPhone: '',
+    coords: initView,
+    url: '',
   },
 ];
 
@@ -102,6 +138,7 @@ const getLabelHtml = (prop, full = false) => {
       <p>£${prop.price.toLocaleString()} PCM</p>
       <hr />
       <p>${prop.agent}</p>
+      <p>${prop.agentPhone}</p>
     `;
 
   let html = `
@@ -115,7 +152,10 @@ const getLabelHtml = (prop, full = false) => {
 }
 
 const addMarker = (prop) => {
-  const label = getLabelHtml(prop);
+  if (!prop.label) {
+    return;
+  }
+  const label = getLabelHtml(prop, true);
   const options = { autoClose: false }
   const marker = L.marker(prop.coords).addTo(map).bindPopup(label, options);
   markers.push(marker);
@@ -131,7 +171,7 @@ const group = new L.featureGroup(markers);
 map.fitBounds(group.getBounds());
 markers.forEach(marker => marker.openPopup());
 
-const groups = Object.groupBy(properties, ({ group }) => group);
+const groups = Object.groupBy(properties, ({ beds }) => '_' + beds.toString());
 
-console.log(groups.threeBed);
-console.log(groups.fourBed);
+console.log(groups._3);
+console.log(groups._4);
