@@ -5,8 +5,10 @@ const properties = [
     label: '5 Cromwell Rd',
     price: 1500,
     beds: 4,
-    agent: 'Robertsons',
-    agentPhone: '01329 640272',
+    agent: {
+      name: 'Robertsons',
+      phone: '01329 640272',
+    },
     coords: [50.78643, -1.05686],
     url: 'https://www.rightmove.co.uk/properties/152537516#',
   },
@@ -14,8 +16,10 @@ const properties = [
     label: 'St Ronans Rd',
     price: 1695,
     beds: 4,
-    agent: 'Reeds Rains',
-    agentPhone: '023 9282 4521',
+    agent: {
+      name: 'Reeds Rains',
+      phone: '023 9282 4521',
+    },
     coords: [50.78605, -1.07275],
     url: 'https://www.rightmove.co.uk/properties/153376400#',
   },
@@ -23,8 +27,10 @@ const properties = [
     label: 'Ashburton Rd',
     price: 1700,
     beds: 4,
-    agent: 'Fry & Kent',
-    agentPhone: '023 9281 5221',
+    agent: {
+      name: 'Fry & Kent',
+      phone: '023 9281 5221',
+    },
     coords: [50.78692, -1.09199],
     url: 'https://www.rightmove.co.uk/properties/153819809#',
   },
@@ -32,8 +38,10 @@ const properties = [
     label: 'East Shore Way',
     price: 1600,
     beds: 4,
-    agent: 'Archbold & Edwards',
-    agentPhone: '023 9225 7999',
+    agent: {
+      name: 'Archbold & Edwards',
+      phone: '023 9225 7999',
+    },
     coords: [50.802670, -1.051970],
     url: 'https://www.rightmove.co.uk/properties/153260408#',
   },
@@ -41,8 +49,10 @@ const properties = [
     label: 'Warren Av',
     price: 1600,
     beds: 4,
-    agent: 'Soane',
-    agentPhone: '023 9200 0333',
+    agent: {
+      name: 'Soane',
+      phone: '023 9200 0333',
+    },
     coords: [50.79946, -1.05063],
     url: 'https://www.rightmove.co.uk/properties/154488806#',
   },
@@ -50,8 +60,10 @@ const properties = [
     label: 'Winter Rd',
     price: 1750,
     beds: 3,
-    agent: 'Jeffries & Dibbens',
-    agentPhone: '023 9264 7171',
+    agent: {
+      name: 'Jeffries & Dibbens',
+      phone: '023 9264 7171',
+    },
     coords: [50.78861, -1.06454],
     url: 'https://www.rightmove.co.uk/properties/154436864#',
   },
@@ -59,8 +71,10 @@ const properties = [
     label: 'Kimberley Rd',
     price: 1200,
     beds: 3,
-    agent: 'Archbold & Edwards',
-    agentPhone: '023 9225 7999',
+    agent: {
+      name: 'Archbold & Edwards',
+      phone: '023 9225 7999',
+    },
     coords: [50.78609, -1.06322],
     url: 'https://www.rightmove.co.uk/properties/154418909#',
   },
@@ -68,8 +82,10 @@ const properties = [
     label: 'Walmer Rd',
     price: 1350,
     beds: 3,
-    agent: 'Archbold & Edwards',
-    agentPhone: '023 9225 7999',
+    agent: {
+      name: 'Archbold & Edwards',
+      phone: '023 9225 7999',
+    },
     coords: [50.79687, -1.07412],
     url: 'https://www.rightmove.co.uk/properties/153874727#',
   },
@@ -77,8 +93,10 @@ const properties = [
     label: 'Grayshott Rd',
     price: 1375,
     beds: 3,
-    agent: 'New Era Agency',
-    agentPhone: '023 9281 1854',
+    agent: {
+      name: 'New Era Agency',
+      phone: '023 9281 1854',
+    },
     coords: [50.79413, -1.06662],
     url: 'https://www.rightmove.co.uk/properties/152978771#',
   },
@@ -86,8 +104,10 @@ const properties = [
     label: 'Godwit Rd',
     price: 1400,
     beds: 3,
-    agent: 'Morris Dibben',
-    agentPhone: '023 8098 7741',
+    agent: {
+      name: 'Morris Dibben',
+      phone: '023 8098 7741',
+    },
     coords: [50.80014, -1.04519],
     url: 'https://www.rightmove.co.uk/properties/153841661#/?channel=RES_LET',
   },
@@ -95,8 +115,10 @@ const properties = [
     label: 'St Augustine',
     price: 1400,
     beds: 3,
-    agent: 'Christies',
-    agentPhone: '023 9283 0888',
+    agent: {
+      name: 'Christies',
+      phone: '023 9283 0888',
+    },
     coords: [50.79044, -1.06816],
     url: 'https://www.rightmove.co.uk/properties/153568313#',
   },
@@ -104,8 +126,10 @@ const properties = [
     label: 'Lindley Av',
     price: 1475,
     beds: 3,
-    agent: 'Pearsons',
-    agentPhone: '023 9273 5558',
+    agent: {
+      name: 'Pearsons',
+      phone: '023 9273 5558',
+    },
     coords: [50.78473, -1.06181],
     url: 'https://www.rightmove.co.uk/properties/154247555#',
   },
@@ -113,19 +137,77 @@ const properties = [
     label: 'Collingwood Rd',
     price: 1500,
     beds: 3,
-    agent: 'Bernards',
-    agentPhone: '023 9286 4974',
+    agent: {
+      name: 'Bernards',
+      phone: '023 9286 4974',
+    },
     coords: [50.78612, -1.07875],
     url: 'https://www.rightmove.co.uk/properties/153836924#',
   },
   {
-    label: '',
-    price: 0,
+    label: 'Fernhurst Rd',
+    price: 1500,
     beds: 3,
-    agent: '',
-    agentPhone: '',
-    coords: initView,
-    url: '',
+    agent: {
+      name: 'Open Rent',
+    },
+    coords: [50.79248, -1.06853],
+    url: 'https://www.rightmove.co.uk/properties/153257531#',
+  },
+  {
+    label: 'Pretoria Rd',
+    price: 1550,
+    beds: 3,
+    agent: {
+      name: 'Mann',
+      phone: '023 8181 0680',
+    },
+    coords: [50.79061, -1.06783],
+    url: 'https://www.rightmove.co.uk/properties/154090148#',
+  },
+  {
+    label: 'Horse Sands Cl',
+    price: 1550,
+    beds: 3,
+    agent: {
+      name: 'Beals',
+      phone: '023 9271 5715',
+    },
+    coords: [50.79064, -1.03788],
+    url: 'https://www.rightmove.co.uk/properties/154334480#',
+  },
+  {
+    label: 'St Ronans Rd',
+    price: 1595,
+    beds: 3,
+    agent: {
+      name: 'Reeds Rains',
+      phone: '023 9282 4521',
+    },
+    coords: [50.78622, -1.07272],
+    url: 'https://www.rightmove.co.uk/properties/154131683#',
+  },
+  {
+    label: '5 St Augustine Rd',
+    price: 1650,
+    beds: 3,
+    agent: {
+      name: 'Bernards',
+      phone: '023 9286 4974',
+    },
+    coords: [50.78677, -1.07000],
+    url: 'https://www.rightmove.co.uk/properties/153837857#',
+  },
+  {
+    label: 'Moorland Rd',
+    price: 1700,
+    beds: 3,
+    agent: {
+      name: 'Cubitt & West',
+      phone: '023 9229 6396',
+    },
+    coords: [50.80247, -1.07289],
+    url: 'https://www.rightmove.co.uk/properties/153449039#',
   },
 ];
 
@@ -137,8 +219,8 @@ const getLabelHtml = (prop, full = false) => {
       <p>${prop.beds} Bedrooms</p>
       <p>£${prop.price.toLocaleString()} PCM</p>
       <hr />
-      <p>${prop.agent}</p>
-      <p>${prop.agentPhone}</p>
+      <p>${prop.agent.name}</p>
+      <p>${prop.agent.phone ?? ''}</p>
     `;
 
   let html = `
@@ -155,7 +237,7 @@ const addMarker = (prop) => {
   if (!prop.label) {
     return;
   }
-  const label = getLabelHtml(prop, true);
+  const label = getLabelHtml(prop);
   const options = { autoClose: false }
   const marker = L.marker(prop.coords).addTo(map).bindPopup(label, options);
   markers.push(marker);
@@ -171,7 +253,8 @@ const group = new L.featureGroup(markers);
 map.fitBounds(group.getBounds());
 markers.forEach(marker => marker.openPopup());
 
-const groups = Object.groupBy(properties, ({ beds }) => '_' + beds.toString());
+const roomGroups = Object.groupBy(properties, ({ beds }) => '_' + beds.toString());
+const agentGroups = Object.groupBy(properties, (props) => props.agent.name);
 
-console.log(groups._3);
-console.log(groups._4);
+console.log(roomGroups);
+console.log(agentGroups);
