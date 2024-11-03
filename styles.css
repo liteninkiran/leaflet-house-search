@@ -1,0 +1,46 @@
+.container {
+    padding: 10px;
+}
+
+#map {
+    height: 870px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.popup-label p {
+    margin: 4px 0;
+}
+
+.popup-label h2 {
+    margin: 8px 0;
+}
+
+.pl-medium p {
+    font-size: 12px;
+}
+
+.pl-small p {
+    font-size: 10px;
+}
+
+.pl-medium h2 {
+    font-size: 20px;
+}
+
+.pl-small h2 {
+    font-size: 14px;
+}
+
+.pl-medium {
+    border-radius: 12px;
+    padding: 5px;
+    background-color: rgba(20, 100, 235, 0.15);
+    width: 100%;
+}
+
+#map a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.75);
+}
