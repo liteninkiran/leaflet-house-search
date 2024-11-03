@@ -77,7 +77,7 @@ const drawMap = (properties, geoJson) => {
   properties.forEach(addMarker);
 
   // Find a property
-  const id = 2;
+  const id = 0;
   const property = properties.find(x => x.id === id);
   const marker = markers.find(x => x.options.id === id);
 
@@ -85,11 +85,8 @@ const drawMap = (properties, geoJson) => {
     map.setView(property.coords, 19);
     marker.openPopup();
   } else {
-    let bounds = L.latLngBounds(groups[0].getBounds());
-    groups.forEach((group) => {
-      bounds.extend(group.getBounds());
-    });
-    map.fitBounds(bounds);
+    const group = new L.featureGroup(markers);
+    map.fitBounds(group.getBounds());
   }
 
   if (addBoundaries) {
