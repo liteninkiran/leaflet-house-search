@@ -21,10 +21,8 @@ fetch('./properties.json')
   .then(({ properties }) => {
     fetch(geoUrl)
       .then(response => response.json())
-      .then(data => drawMap(properties, data))
-      .catch(error => console.log(error));
-  })
-  .catch(error => console.log(error));
+      .then(data => drawMap(properties, data));
+  });
 
 const drawMap = (properties, geoJson) => {
   const getLabelHtml = (prop, full = false) => {
@@ -55,7 +53,7 @@ const drawMap = (properties, geoJson) => {
     const options = { autoClose: false }
     const markerOptions = {
       icon: prop.beds === 3 ? redIcon : blueIcon,
-      property: prop.label,
+      id: prop.id,
     }
     const marker = L.marker(prop.coords, markerOptions)
       .addTo(map)
@@ -75,20 +73,13 @@ const drawMap = (properties, geoJson) => {
 
   // Markers
   let markers = [];
-  let groups = [];
-  let group = undefined;
 
-  Object.keys(rooms).forEach(room => {
-    rooms[room].forEach(addMarker);
-    group = new L.featureGroup(markers);
-    groups.push(group);
-    markers = [];
-  });
+  properties.forEach(addMarker);
 
   // Find a property
-  const label = '';
-  const property = properties.find(x => x.label === label);
-  const marker = markers.find(x => x.options.property === label);
+  const id = 2;
+  const property = properties.find(x => x.id === id);
+  const marker = markers.find(x => x.options.id === id);
 
   if (property) {
     map.setView(property.coords, 19);
@@ -108,7 +99,7 @@ const drawMap = (properties, geoJson) => {
         style: (feature) => ({ color: '#000' }),
         weight: 2,
         onEachFeature: (feature, layer) => {
-          console.log(feature);
+          // console.log(feature);
           if (feature.geometry.type = 'Point') {
             layer.bindPopup(feature.properties.name);
           }
