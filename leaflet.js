@@ -1,13 +1,14 @@
 const url = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+const geoUrl = './ward.json';
+//const geoUrl = './middle-super.json';
 const initView = [50.788, -1.075];
-
+const addBoundaries = true;
 const blueIcon = L.icon({
   iconUrl: 'map-marker-blue.svg',
   iconSize: [40, 40],
   iconAnchor: [20, 40],
   popupAnchor: [0, -40],
 });
-
 const redIcon = L.icon({
   iconUrl: 'map-marker-red.svg',
   iconSize: [40, 40],
@@ -18,7 +19,7 @@ const redIcon = L.icon({
 fetch('./properties.json')
   .then(response => response.json())
   .then(({ properties }) => {
-    fetch('./portsmouth.json')
+    fetch(geoUrl)
       .then(response => response.json())
       .then(data => drawMap(properties, data))
       .catch(error => console.log(error));
@@ -98,5 +99,23 @@ const drawMap = (properties, geoJson) => {
       bounds.extend(group.getBounds());
     });
     map.fitBounds(bounds);
+  }
+
+  if (addBoundaries) {
+    const keys = Object.keys(geoJson);
+    const addGeoJson = (key) => {
+      const options = {
+        style: (feature) => ({ color: '#000' }),
+        weight: 2,
+        onEachFeature: (feature, layer) => {
+          console.log(feature);
+          if (feature.geometry.type = 'Point') {
+            layer.bindPopup(feature.properties.name);
+          }
+        }
+      }
+      L.geoJson(geoJson[key], options).addTo(map);
+    }
+    keys.forEach(addGeoJson);
   }
 }
