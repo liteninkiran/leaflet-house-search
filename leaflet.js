@@ -112,14 +112,14 @@ const properties = [
     url: 'https://www.rightmove.co.uk/properties/153841661#/?channel=RES_LET',
   },
   {
-    label: 'St Augustine',
+    label: 'St Augustine Rd',
     price: 1400,
     beds: 3,
     agent: {
       name: 'Christies',
       phone: '023 9283 0888',
     },
-    coords: [50.79044, -1.06816],
+    coords: [50.79044, -1.0683],
     url: 'https://www.rightmove.co.uk/properties/153568313#',
   },
   {
@@ -162,7 +162,7 @@ const properties = [
       name: 'Mann',
       phone: '023 8181 0680',
     },
-    coords: [50.79061, -1.06783],
+    coords: [50.79055, -1.06783],
     url: 'https://www.rightmove.co.uk/properties/154090148#',
   },
   {
@@ -195,7 +195,7 @@ const properties = [
       name: 'Bernards',
       phone: '023 9286 4974',
     },
-    coords: [50.78677, -1.07000],
+    coords: [50.78677, -1.0698],
     url: 'https://www.rightmove.co.uk/properties/153837857#',
   },
   {
@@ -240,7 +240,8 @@ const addMarker = (prop) => {
   const label = getLabelHtml(prop);
   const options = { autoClose: false }
   const markerOptions = {
-    icon: prop.beds === 3 ? blueIcon : redIcon,
+    icon: prop.beds === 3 ? redIcon : blueIcon,
+    property: prop.label,
   }
   const marker = L.marker(prop.coords, markerOptions)
     .addTo(map)
@@ -271,16 +272,23 @@ const redIcon = L.icon({
 const roomGroups = Object.groupBy(properties, ({ beds }) => '_' + beds.toString());
 const agentGroups = Object.groupBy(properties, (props) => props.agent.name);
 
-console.log(roomGroups);
-console.log(agentGroups);
+// console.log(roomGroups);
+// console.log(agentGroups);
 
 // Markers
 const markers = [];
 properties.forEach(addMarker);
 const group = new L.featureGroup(markers);
 
-// Zoom to fit
-map.fitBounds(group.getBounds());
+// Find a property
+const label = '';
+const property = properties.find(x => x.label === label);
+const marker = markers.find(x => x.options.property === label);
 
-// Show Markers
-markers.forEach(marker => marker.openPopup());
+if (property) {
+  map.setView(property.coords, 19);
+  marker.openPopup();
+} else {
+  map.fitBounds(group.getBounds());
+  markers.forEach(marker => marker.openPopup());
+}
