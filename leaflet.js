@@ -3,6 +3,7 @@ const geoUrl = './ward.json';
 //const geoUrl = './middle-super.json';
 const initView = [50.788, -1.075];
 const addBoundaries = true;
+const showFullLabel = true;
 const blueIcon = L.icon({
   iconUrl: 'map-marker-blue.svg',
   iconSize: [40, 40],
@@ -49,7 +50,7 @@ const drawMap = (properties, geoJson) => {
     if (!prop.label) {
       return;
     }
-    const label = getLabelHtml(prop);
+    const label = getLabelHtml(prop, showFullLabel);
     const options = { autoClose: false }
     const markerOptions = {
       icon: prop.beds === 3 ? redIcon : blueIcon,
@@ -70,6 +71,8 @@ const drawMap = (properties, geoJson) => {
 
   const rooms = Object.groupBy(properties, ({ beds }) => '_' + beds.toString());
   const agents = Object.groupBy(properties, (props) => props.agent.name);
+
+  console.log(rooms);
 
   // Markers
   let markers = [];
