@@ -16,21 +16,6 @@
       "url": "https://www.rightmove.co.uk/properties/152537516#"
     },
     {
-      "id": 2,
-      "label": "St Ronans Rd",
-      "price": 1695,
-      "beds": 4,
-      "agent": {
-        "name": "Reeds Rains",
-        "phone": "023 9282 4521"
-      },
-      "coords": [
-        50.78605,
-        -1.07275
-      ],
-      "url": "https://www.rightmove.co.uk/properties/153376400#"
-    },
-    {
       "id": 3,
       "label": "Ashburton Rd",
       "price": 1700,
@@ -223,21 +208,6 @@
         -1.03788
       ],
       "url": "https://www.rightmove.co.uk/properties/154334480#"
-    },
-    {
-      "id": 17,
-      "label": "St Ronans Rd",
-      "price": 1595,
-      "beds": 3,
-      "agent": {
-        "name": "Reeds Rains",
-        "phone": "023 9282 4521"
-      },
-      "coords": [
-        50.78622,
-        -1.07272
-      ],
-      "url": "https://www.rightmove.co.uk/properties/154131683#"
     },
     {
       "id": 18,
